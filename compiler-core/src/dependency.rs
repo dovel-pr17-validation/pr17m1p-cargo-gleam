@@ -17,7 +17,7 @@ use hexpm::{
     Dependency, Release,
     version::{Range, Version},
 };
-use pubgrub::{Dependencies, DerivationTree, Map};
+use pubgrub::{Dependencies, DependencyConstraints, DerivationTree, Map};
 use thiserror::Error;
 
 pub type PackageVersions = HashMap<String, Version>;
@@ -450,7 +450,7 @@ where
         version: &Self::V,
     ) -> Result<Dependencies<Self::P, Self::VS, Self::M>, Self::Err> {
         let Presence::Present(version) = version else {
-            return Ok(Dependencies::Available(Map::default()));
+            return Ok(Dependencies::Available(DependencyConstraints::default()));
         };
 
         self.ensure_package_fetched(package)?;
@@ -492,7 +492,7 @@ where
 
             let _ = deps.insert(name.clone(), range);
         }
-        Ok(Dependencies::Available(deps))
+        Ok(Dependencies::Available(deps.into_iter().collect()))
     }
 
     fn prioritize(
