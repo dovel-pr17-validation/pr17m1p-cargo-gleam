@@ -16,7 +16,7 @@ petgraph = "0.8"
 # Template rendering
 askama = "0"
 # Markdown parsing
-pulldown-cmark = { version = "0", default-features = false, features = [
+pulldown-cmark = { version = "0.13.6", default-features = false, features = [
   "html",
 ] }
 # XDG directory locations
