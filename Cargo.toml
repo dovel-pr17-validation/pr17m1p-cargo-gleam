@@ -39,13 +39,13 @@ termcolor = "1"
 serde = { version = "1", features = ["derive", "rc"] }
 serde_json = "1"
 # toml config file parsing
-toml = "1.1"
+toml = "1.2.1+spec-1.1.0"
 # Enum trait impl macros
 strum = { version = "0", features = ["derive"] }
 # Creation of tar file archives
 tar = "0"
 # gzip compression
-flate2 = "1"
+flate2 = "1.1.11"
 # Logging
 tracing = "0"
 # Macro to work around Rust's traits not working with async. Sigh.
